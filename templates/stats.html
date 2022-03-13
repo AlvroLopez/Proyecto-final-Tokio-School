@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Comparador de tarifas</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&family=Inconsolata:wght@500&family=PT+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="title-text">COMPARADOR DE TARIFAS</h1>
+            <h2 class="title-text"> Elige la opción más económica</h2>
+        </div>
+        <div class="content">
+            <br>
+            <br>
+            <div class="grid-container-2">
+                <p> Los siguientes datos no se basan en clientes reales sino en simulaciones de consumos y potencias habituales en España </p>
+                <p> Tu consumo es un {{ means["Consumo"] }} % {% if means["Consumo"] >= 0: %} mayor {% else: %} menor {% endif %} que la media </p>
+                <p> Tu potencia es un {{ means["Potencia"] }} % {% if means["Potencia"] >= 0: %} mayor {% else: %} menor {% endif %} que la media </p>
+                <div class="cards">
+                    {% for comp in lista_tarifas: %}
+                    <div class="card" style="width: 18rem;height: 170px;">
+                        <div class="card-body">
+                          <h5 class="card-title"> {{ comp.name }} </h5>
+                          <p class="price-tag"> {{ comp.KWh }} € </p>
+                          <a href="{% if comp.name == 'Naturgy': %} https://www.naturgy.es/hogar/luz/tarifa_por_uso_luz
+                          {% elif comp.name == 'Iberdrola': %} https://www.iberdrola.es/luz/plan-estable
+                          {% elif comp.name == 'Endesa': %} https://www.endesa.com/es/luz-y-gas/luz/one/tarifa-one-luz
+                          {% elif comp.name == 'Repsol': %} https://www.repsol.es/particulares/hogar/luz-y-gas/tarifas/tarifa-ahorro-plus/#prices-conditions-component
+                          {% elif comp.name == 'EDP': %} https://selectra.es/energia/companias/edp/tarifas {% endif %}" class="btn btn-success"> Más información </a>
+                            {% if comp.name == 'Naturgy': %} <p class="stats-info"> Pagarías un {{ means["Precio"][0] }} % más que la media de clientes de esta compañía</p>
+                            {% elif comp.name == 'Iberdrola': %} <p class="stats-info"> Pagarías un {{ means["Precio"][1] }} % más que la media de clientes de esta compañía</p>
+                            {% elif comp.name == 'Endesa': %} <p class="stats-info"> Pagarías un {{ means["Precio"][2] }} % más que la media de clientes de esta compañía</p>
+                            {% elif comp.name == 'Repsol': %} <p class="stats-info"> Pagarías un {{ means["Precio"][3] }} % más que la media de clientes de esta compañía</p>
+                            {% elif comp.name == 'EDP': %} <p class="stats-info"> Pagarías un {{ means["Precio"][4] }} % más que la media de clientes de esta compañía</p>
+                            {% endif %}
+                        </div>
+                      </div>
+                    {% endfor %}
+                </div>
+                <br>
+                <br>
+                <form method="get"  class="btn btn-success" action="/">
+                        <button class="btn btn-success" type="submit"> Click aquí para volver a la página principal </button>
+                </form>
+                </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,147 @@
+.header {
+    background-color: #4e4e4e;
+    text-align: center;
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 100px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 10px 10px 10px 20px #3d3d3d;
+    color: white;
+}
+
+.button {
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+#aviso {
+    margin-top: 30px;
+    color: white;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.title-text {
+    margin-top: 10px;
+}
+
+body {
+    background-image: url("https://images5.alphacoders.com/456/456536.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.content {
+    margin-top: 2%;
+    display:inline;
+    align-items: center;
+    text-align: center;
+}
+
+#submitButton {
+    margin-top: 2%;
+
+}
+
+.grid-container {
+    border: 1px solid black;
+    width: 400px;
+    height: 160px;
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #4e4e4e;
+}
+
+.grid-container-2 {
+    border: 1px solid black;
+    width: 1000px;
+    height: 350px;
+    left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #4e4e4e;
+}
+
+.grid-item {
+    margin-top: 20px;
+}
+
+#cons-ref {
+    margin-bottom: 1%;
+}
+
+.card {
+    display: inline-block;
+    background-color: grey;
+    height: 100px;
+    margin-top:30px
+}
+
+.card-body {
+    color: whitesmoke;
+    font-size: large;
+    margin-top: 20px
+}
+
+.comp-info {
+    width:100%;
+    height:30px;
+    margin-top:20px
+}
+
+
+.stats {
+    margin-top: 40px;
+    width: 20%;
+    height: 5%
+}
+
+p {
+    color:white;
+}
+
+.stats-button{
+    margin-top: 40px;
+}
+
+.stats-info {
+    color: white;
+    font-size: 12px;
+}
+
+label {
+    color: white;
+}
+
+:root {
+    --price-tag-background: rgba(0, 0, 0, 0.3);
+    --price-tag-height: 2rem;
+}
+
+.price-tag {
+    background: var(--price-tag-background);
+    color: #fff;
+
+    /* Center the price */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Used to position the triangle */
+    position: relative;
+
+    /* Size */
+    height: var(--price-tag-height);
+
+    /* Spacing */
+    padding: 0.25rem 0.5rem;
+}
